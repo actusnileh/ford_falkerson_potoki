@@ -27,7 +27,6 @@ def ford_falkerson_service(
 
     while (parent := bfs()) is not None:
         result.append(f"\nШаг {step}: Найдена увеличивающая цепь")
-        print("-" * 50)
 
         # Восстановление пути
         path = []
@@ -62,24 +61,8 @@ def ford_falkerson_service(
 
         max_flow += path_flow
         result.append(f"Добавлено в общий поток: {path_flow}")
-        print(f"Текущий максимальный поток: {max_flow}")
+        result.append(f"Текущий максимальный поток: {max_flow}")
 
-        result.append("-" * 50)
         step += 1
 
     return max_flow, result
-
-
-# capacity = [
-    [0, 5, 0, 1, 0],
-    [0, 0, 1, 2, 1],
-    [0, 0, 0, 4, 3],
-    [0, 0, 0, 0, 3],
-    [0, 0, 0, 0, 0],
-# ]
-
-# source = 0
-# sink = 4
-
-# max_flow = ford_falkerson_service(capacity, source, sink)
-# print(f"\nИтоговый максимальный поток: {max_flow}")
