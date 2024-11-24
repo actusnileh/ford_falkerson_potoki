@@ -1,0 +1,17 @@
+services:
+    frontend:
+        container_name: ford_falkerson_javascript
+        build:
+            context: ../frontend
+            dockerfile: Dockerfile
+        ports:
+            - "5171:5173"
+        command: /bin/sh -c "pnpm run dev --host"
+        volumes:
+            - ../frontend:/frontend
+        networks:
+            - ford_falkerson_network
+
+networks:
+    ford_falkerson_network:
+        driver: bridge
